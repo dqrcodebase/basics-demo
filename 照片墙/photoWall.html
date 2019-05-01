@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./photoWall.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="wrap">
+            <li class="photoWrap init ">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'> <span class='image'>imamg1</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind1</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="photoWrap init">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'> <span class='image'>imamg2</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind2</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="photoWrap init">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'><span class='image'>imamg3</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind3</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="photoWrap init">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'> <span class='image'>imamg4</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind4</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="photoWrap init">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'> <span class='image'>imamg5</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind5</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="photoWrap init">
+                <div class="inner">
+                    <div class='bg'></div>
+                    <div class='ag'><span class='image'>imamg6</span></div>
+
+                    <div class='top'>
+                        <span class='bind'>bind6</span>
+                        <div class='close'>
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <script src='../jquery.js'></script>
+    <script>
+        var timer = setTimeout(function () {
+            $('.init').removeClass('init');
+        }, 200);
+        $('.photoWrap').on('click', function () {
+            $(this).addClass('active');
+            $('.wrapper').addClass('wrapper-active')
+        })
+        $('.close').on('click', function (e) {
+            e.stopPropagation();
+            $('.active').removeClass('active');
+            $('.wrapper').removeClass('wrapper-active');
+        })
+    </script>
+</body>
+
+</html>

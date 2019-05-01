@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .wrapper {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            height: 300px;
+            width: 2000px;
+        }
+
+        .demo {
+            width: 400px;
+            height: 300px;
+            float: left;
+        }
+
+        .demo img {
+            width: 400px;
+            height: 300px;
+
+        }
+
+        .case {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: calc(50% - 15px);
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #726d6d;
+            opacity: 0.5;
+            background-color: #a59d9d;
+            cursor: pointer
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .case:hover {
+            opacity: 1;
+        }
+
+        .dotwrap {
+            width: 80px;
+            height: 25px;
+            position: absolute;
+            bottom: 20px;
+            left: calc(50% - 40px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            float: left;
+            border-radius: 50%;
+            background-color: #a7a1a1;
+            opacity: 0.5;
+            cursor: pointer
+        }
+
+        .acitv {
+            background-color: #ec5f0d;
+            opacity: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="slide">
+            <li class="demo"><img src="" alt=""></li>
+            <li class="demo"><img src="" alt=""></li>
+            <li class="demo"><img src="" alt=""></li>
+            <li class="demo"><img src="" alt=""></li>
+            <li class="demo"><img src="" alt=""></li>
+        </ul>
+        <span class='case left'>&lt</span>
+        <span class='case right'>&gt</span>
+        <ul class="dotwrap">
+            <li class="dot acitv"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+        </ul>
+    </div>
+    <script>
+        var wra = document.getElementsByClassName('slide')[0];
+        var left = document.getElementsByClassName('left')[0];
+        var right = document.getElementsByClassName('right')[0];
+        var dot = document.getElementsByClassName('dot');
+        var dotLength = dot.length;
+        var num = wra.children.length - 1;
+        var moveWidth = wra.children[0].offsetWidth;
+        var time = null;
+        var lock = true;
+        var index = 0;
+
+        left.onclick = function () {
+            slide('right->left')
+        }
+        right.onclick = function () {
+            slide('left->right')
+        }
+
+        HTMLUListElement.prototype.cresteTurnPage = function (arr) {
+            var len = this.children.length;
+            var child = this.children;
+            for (var i = 0; i < len; i++) {
+                if (child[i].children[0].localName == 'img') {
+                    child[i].children[0].src = arr[i];
+                }
+            }
+        }
+        wra.cresteTurnPage(['./img/1.jpg', './img/2.jpg', './img/3.jpg', './img/7.png', './img/1.jpg'])
+        function traversal() {
+            for (var i = 0; i < dot.length; i++) {
+                (function (myindex) {
+                    dot[myindex].onclick = function () {
+                        if (lock) {
+                            lock = false;
+                            index = myindex;
+                            clearTimeout(time)
+                            startMove(wra, -index * moveWidth, function () {
+                                if (wra.offsetLeft == -num * moveWidth) {
+                                    wra.style.left = '0px';
+                                    index = 0;
+                                }
+                                changeIndex(index)
+                                lock = true
+                                time = setTimeout(slide, 1500)
+                            })
+                        }
+                    }
+                })(i)
+            }
+        }
+
+        traversal()
+
+        function slide(direction) {
+            if (lock) {
+                clearTimeout(time)
+                lock = false
+                if (direction == 'left->right' || !direction) {
+                    index++
+                    startMove(wra, wra.offsetLeft - moveWidth, function () {
+                        if (wra.offsetLeft == -num * moveWidth) {
+                            wra.style.left = '0px';
+                            index = 0;
+                        }
+                        changeIndex(index)
+                        time = setTimeout(slide, 1500)
+                        lock = true
+                    })
+                } else if (direction == 'right->left') {
+                    if (wra.offsetLeft == 0) {
+                        wra.style.left = -num * moveWidth + 'px';
+                        index = num;
+                    }
+                    index--;
+                    startMove(wra, wra.offsetLeft + moveWidth, function () {
+                        time = setTimeout(slide, 1500)
+                        lock = true;
+
+                        changeIndex(index)
+                    })
+                }
+            }
+        }
+
+        time = setTimeout(slide, 1500)
+
+        function startMove(dom, target, callback) {
+            let iSpeed = 0;
+            let timer = null;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                iSpeed = (target - dom.offsetLeft) / 3;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                dom.style.left = dom.offsetLeft + iSpeed + 'px';
+                if (dom.offsetLeft == target) {
+                    clearInterval(timer);
+                    typeof callback == 'function' && callback()
+                }
+            }, 30)
+        }
+        function changeIndex(_index) {
+            for (var i = 0; i < dotLength; i++) {
+                dot[i].className = 'dot';
+            }
+            dot[_index].className = 'dot acitv';
+
+        }
+
+    </script>
+</body>
+
+</html>
