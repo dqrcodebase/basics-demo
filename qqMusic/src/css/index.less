@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    html,body{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: 100%;
+        .wrapper{
+            padding-top:60px;
+            box-sizing:border-box;
+            width:100vw;
+            height:100vh; 
+            background-color : rgba(0,0,0,.2); 
+            .header{
+                width:50%;
+                height:0;
+                padding-top:50%;
+                position:relative;
+                margin:0 auto;                             
+                .img-box{
+                    position:absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center; 
+                    border-radius:50%;   
+                     background-color:#000;       
+                    img{
+                        width:80%;
+                        height:80%;
+                        border-radius:50%; 
+                    }
+                }
+            }  
+            .message{
+                width:100%;
+                margin-top:20px;
+                position:relative;
+                .song-name{
+                    font-size:25px;
+                    height:40px;
+                    color:#fff;
+                    text-align:center;
+                    line-height:40px
+                }
+                .singer-name{
+                    font-size:14px;
+                    height:30px;
+                    color:#fff;
+                    text-align:center;
+                    line-height:30px
+                }
+                .album-name{
+                    font-size:14px;
+                    height:30px;
+                    color:#fff;
+                    text-align:center;
+                    line-height:30px
+                }
+            } 
+            .progress{
+                width:100%;
+                height:40px;
+                display:flex;
+                .play-time,.all-time{
+                    width:60px;
+                    height:40px;
+                    color:#fff;
+                    font-size:14px;
+                    line-height:40px;
+                    text-align:center;
+                }
+                .progress-bar{
+                    flex:1;
+                    padding:0 3px;
+                    height:100%;
+                    position: relative;
+                    overflow:hidden;
+                    box-sizing:border-box;
+                    .pro-bottom{
+                        width:95%;
+                        height:2px;
+                        position: absolute;
+                        top: 20px;
+                        background-color:rgba(255, 255, 255, 0.6)
+                    }
+                    .pro-top{
+                        width:95%;
+                        height:2px;
+                        position: absolute;
+                        top: 20px;
+                        background-color:#fff;
+                        transform:translateX(-100%);
+                        .slider-point{
+                            width:21px;
+                            height:21px;    
+                            border-radius:50%;
+                            position:absolute;  
+                            right:-10px;
+                            top:-10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            &::after{
+                                content:'';
+                                display:inline-block;
+                                width:5px;
+                                height:5px;
+                                background-color:#fff;
+                                border-radius:50%;
+                            }
+                        }
+                    }
+                }
+            }
+            .footer{
+                    width:100%;
+                    height:70px;
+                    background-color:rgba(0,0,0,.4);
+                    position:absolute;
+                    bottom:0;
+                    display:flex;
+                    .btn{
+                        flex:1;
+                        height:70px;
+                        background-size:20px;
+                        background-position: center center;
+                        background-repeat:no-repeat;
+                    }
+                    .like{
+                        background-image:url('../image/icon-like.png');
+                        &.like-solid{
+                             background-image:url('../image/icon-like-solid.png')
+                        }
+                    }
+                    .prev{
+                        background-image:url('../image/icon-prev.png')
+                    }
+                    .play{
+                        background-image:url('../image/icon-play.png');
+                        &.pause {
+                            background-image:url('../image/icon-pause.png');
+                        }
+                    }
+                    .next{
+                        background-image:url('../image/icon-next.png')
+                    }
+                    .list{
+                        background-image:url('../image/icon-playlist.png');
+                        .list-box{
+                            position: absolute;
+                            width:100vw;
+                            background-color:#fff;
+                            left:0;
+                            bottom:0;
+                            display:none;
+                            &.show{
+                                display: inline-block;
+                            }
+                            .play-list,.close{
+                                width:100%;
+                                height:50px;
+                                font-size:20px;
+                                text-align:center;
+                                line-height:40px;
+                                border-top:1px solid rgba(194, 188, 188, 0.5);
+                            }
+                            .list-song{
+                                width:100%;                  
+                                .song-name{
+                                    width:100%;
+                                    height:40px;
+                                    font-size:14px;
+                                    line-height:40px;
+                                    border-top:1px solid rgba(194, 188, 188, 0.5);
+                                    padding-left:10px;
+                                    font-weight:bold;
+                                    &.active{
+                                        color:rgb(248, 76, 8)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }     
+        }
+    }
+}
