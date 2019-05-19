@@ -1,0 +1,94 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+html,body{
+    width:100%;
+    height:100%;
+}
+.wrapper{
+    width:100%;
+    height:100%;
+    background-image:url('./img/bg.jpg');
+    background-size:100% 100%;
+}
+.wrapper .begin{
+    width:160px;
+    height:140px;
+    position:absolute;
+    top:5%;
+    left:5%;
+    background-image:url('./img/startGame.png');
+    background-size:100% 100%;
+    cursor:pointer;
+}
+.wrapper .remainder{
+    height:40px;
+    font-size:20px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top:10%;
+    font-weight:bold;
+    display:none
+}
+.wrapper .remainder p{
+    display:inline-block;
+}
+.wrapper .content{
+    width:500px;
+    height:500px;
+    position:absolute;
+    top:calc(50% - 250px);
+    left:calc(50% - 250px);
+    border:1px solid black;
+    transform: perspective(800px) rotateX(45deg);
+    display:none
+}
+.wrapper .content ul li{
+    width:50px;
+    height:50px;
+    box-sizing:border-box;
+    border:1px solid rgb(104, 102, 102);
+    float:left;
+    background-image:url('./img/cao.jpg');
+}
+.wrapper .content ul li.active{
+    font-weight:bold;
+    font-size:20px;
+    background-color:rgb(209, 152, 46);
+    background-image: none;
+    text-align:center;
+    line-height:50px;
+}
+.wrapper .content ul li.hongqi{
+    background-image:url('./img/hongqi.jpg');
+}
+.wrapper .win,.wrapper .over{
+    width:500px;
+    height:300px;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background-size:100% 100%;
+    display:none;
+    cursor:pointer;
+}
+.wrapper .win{
+    background-image:url('./img/success.png')
+}
+.wrapper .over{
+    background-image:url('./img/over.jpg')
+}
+.wrapper .win .close,.wrapper .over .close{
+    width:30px;
+    height:30px;
+    position:absolute;
+    right:30px;
+    top:30px;
+    background-image:url('./img/closeBtn.png')
+}
