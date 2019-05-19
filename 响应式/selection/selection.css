@@ -1,0 +1,82 @@
+
+.location{
+    height: 40px;
+    color:rgb(238, 138, 24);
+    position: relative;
+    display:inline-block;
+    left:0;
+    top:calc(50% - 20px);
+    cursor:pointer;
+    z-index: 21;
+}
+.location .areaContent{
+    position: relative;
+    display: inline-block;
+    height:40px;
+}
+
+.location  .areaContent .orientation{
+    height: 38px;
+    line-height:38px;
+
+    border:1px solid #fff;
+    position: relative;
+    z-index: 10;
+}
+.location .areaContent .orientation .item-name{
+    font-size:14px;
+}
+.location  .areaContent .orientation img{
+    width:20px;
+    height:18px;
+    vertical-align:-2px;
+}
+.location  .areaContent .itemList{
+    display:none;
+    flex-wrap:wrap;
+    background-color:#fff;
+    border:1px solid #ddd;
+    position: absolute;
+}
+.location  .areaContent .itemList .item{
+    float:left;
+    width: 60px;
+    height:30px;
+    line-height: 30px;
+    padding:5px;
+    text-align:center;
+    cursor:pointer;
+}
+.location  .areaContent .itemList .item a{
+    font-size:12px;
+    padding:3px 10px;
+    color:rgb(173, 168, 168)
+}
+.location:hover .areaContent .itemList{
+    display:inline-block;
+}
+.location:hover  .areaContent .orientation{
+    background-color:#fff;
+    border:1px solid #ddd;
+    border-bottom:none;
+    padding-bottom:2px;
+    z-index: 10;
+}
+.location  .areaContent .itemList .item:hover{
+     background-color:rgb(253, 95, 4);
+}
+.location  .areaContent .itemList .item:hover a{
+   
+    color:#fff
+}
+.location  .areaContent .itemList .item.active{
+    background-color:rgb(253, 95, 4)
+}
+.location  .areaContent .itemList .item.active a{
+    color:#fff;
+}
+@media screen and (max-width:700px){
+    .location{
+        display:none
+    }
+}

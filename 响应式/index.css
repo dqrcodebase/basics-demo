@@ -1,0 +1,278 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+}
+html,body{
+    height:100%;   
+}
+/* 头部 */
+.header{
+    width:100%;
+    height:80px;
+    position:fixed;
+    z-index:10;
+    background-color:#fff;
+    border-bottom:1px solid rgb(172, 167, 167)
+}
+.header .nav{
+    width:90%;
+    height:100%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+}
+.header .nav>img{
+    width:50px;
+    height:40px;
+    position:relative;
+    top:calc(50% - 20px)
+}
+.header .nav .set{
+    float:right;
+}
+.header .nav .set li{
+    float:left
+}
+.header .nav .set li a{
+    padding:0 10px;
+    line-height:80px;
+    text-align:center;
+    color:rgb(107, 103, 103);
+    display: inline-block;
+}
+
+/*中间轮播图部分 */
+
+.content .tran ul li{
+    flex:1 1 auto;
+    border-right:1px solid #ddd;
+    padding-left:10px
+}
+.content .tran ul li img{
+}
+.content .tran ul li p{
+    color:rgb(133, 127, 127)
+}
+
+.content .swiper .dot{
+    width:100px;
+    height:20px;
+    position:absolute;
+    bottom:50px;
+    left:50%;
+    transform: translateX(-50%);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background-color:rgba(159, 163, 159, 0.3);
+}
+.content .swiper .dot li{
+    width:10px;
+    height: 10px;
+    border-radius:50%;
+    background-color:#fff;
+}
+.content .swiper .dot li.active{
+    background-color:rgb(230, 140, 6)
+}
+/* 旅游路线 */
+.project{
+    width:80%;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    margin-bottom:30px;
+}
+.project .title{
+    width:300px;
+    height:150px;
+    display:inline-flex;
+    flex-wrap:wrap;
+    align-content:space-around;
+}
+.project .title p{
+    color:rgb(133, 127, 127);
+    font-size:30px;
+    text-shadow:5px 5px 5px rgb(133, 127, 127)
+}
+/* 旋转小球 */
+@keyframes Rotate{
+    0%{
+        transform: rotateZ(60deg) rotateX(0deg) rotateY(0deg)
+    }
+    100%{
+        transform: rotateZ(60deg) rotateX(360deg) rotateY(360deg)
+    }
+}
+.project .call{
+    perspective: 500px;
+    transform-style:preserve-3d;
+    position: absolute;
+    width:150px;
+    height:150px;
+    right:50px;
+    top:0   
+}
+
+.project .call ul {
+    position: absolute;
+    transform-style:preserve-3d;
+    width:50px;
+    height:50px;
+    transform:rotateZ(60deg);
+    animation:Rotate 2s linear infinite;
+    transform-origin:30px 50px 50px;
+}
+.project .call:hover ul{
+     transform:scale(2);
+     color:red
+}
+.project .call ul li{
+    width:100%;
+    height:100%;
+    position:absolute;
+    border-radius:50%;
+    opacity:0.1;
+}
+.project .call ul li:nth-of-type(1){
+    transform:rotateX(30deg);
+    background-color:rgb(15, 140, 243);
+}
+.project .call ul li:nth-of-type(2){
+    transform:rotateX(60deg);
+    background-color:rgb(37, 163, 247);
+}
+.project .call ul li:nth-of-type(3){
+    transform:rotateX(90deg);
+    background-color:rgb(47, 188, 243);
+}
+.project .call ul li:nth-of-type(4){
+    transform:rotateX(120deg);
+    background-color:rgb(78, 198, 235);
+}
+.project .call ul li:nth-of-type(5){
+    transform:rotateX(150deg);
+    background-color:rgb(83, 180, 204);
+}
+.project .call ul li:nth-of-type(6){
+    transform:rotateX(180deg);
+    background-color:rgb(98, 166, 211);
+}
+.project .call ul li:nth-of-type(7){
+    transform:rotateX(210deg);
+    background-color:rgb(106, 182, 233);
+}
+.project .call ul li:nth-of-type(8){
+    transform:rotateX(240deg);
+    background-color:rgb(156, 181, 235);
+}
+.project .call ul li:nth-of-type(9){
+    transform:rotateX(270deg);
+    background-color:rgb(100, 148, 221);
+}
+.project .call ul li:nth-of-type(10){
+    transform:rotateX(300deg);
+    background-color:rgb(114, 112, 219);
+}
+.project .call ul li:nth-of-type(11){
+    transform:rotateX(330deg);
+    background-color:rgb(69, 131, 202);
+}
+
+.project .scenic{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around
+}
+.project .scenic li{
+    margin:10px;
+    width:250px;
+    height:200px;
+    flex:0 1 auto
+}
+.project .scenic li img{
+    width:100%;
+    height:170px;
+}
+
+/* 遮罩层 */
+
+.footer{
+    width:100%;
+    height:400px;
+    position:relative;
+    background-image:url('./img/bottom.jpg');
+    background-size:100% 100%;
+}
+.footer .logo{
+    width:70px;
+    height:50px;
+    position: absolute;
+    top:100px;
+    left:300px
+}
+.footer .mask{
+    width:100%;
+    height:100%;
+    background-color:#000;
+    opacity:0.4
+}
+.footer .history{
+    width:300px;
+    color:#fff;
+    position: absolute;
+    top:150px;
+    left:300px;
+    opacity:0.8;
+    font-size:15px;
+}
+@media screen and (max-width:1125px){
+    .header{
+        height:50px;
+    }
+    .header .nav{
+        width:100%;
+    }
+    .header .nav .set li a{
+        height:50px;
+        line-height:50px;
+        padding:0 3px;
+        font-size:12px;
+    }
+}
+@media screen and (max-width:900px) {
+    .header .nav{
+        width:85%;
+        margin:0 auto;
+    }
+    .header .nav .set{
+        display:none;
+    }
+    
+    .project .scenic li{
+        width:450px;
+        height:350px;
+    }
+    .project .scenic li img{
+        width:100%;
+        height:320px;
+    }
+}
+@media screen and (max-width:700px) {
+    .header .nav{
+        width:100%;
+    }
+    .header .nav>img{
+        display:none
+    }
+
+}
+@media screen and (max-width:400px) {
+    .content .tran{
+        display:none;
+    }
+
+}

@@ -1,0 +1,74 @@
+ .search{
+    width:500px;
+    position: relative;
+    top:30px;
+    left:0;
+    z-index:20;
+}
+.search .list-box{
+    font-size:0;
+     display:inline-block;
+}
+.search .list-box .search-box{
+     display:inline-block;
+}
+ .search .list-box .search-box .inp{
+    width:450px;
+    height:30px;
+    outline:none;
+    box-sizing:border-box;
+    float:left;
+    padding:3px 5px;
+}
+ .search .list-box .search-box .sear{
+    font-size:14px;
+    width:50px;
+    height:30px;
+    background-color:rgb(253, 115, 3);
+    border:none;
+    float:left;
+    color:#fff;
+    cursor: pointer;
+    outline:none;
+}
+.search .list-box .itemList{
+    background-color:#fff;
+    display: inline-block;
+}
+.search .list-box .itemList .item{
+    width:100%;
+    /* height:40px; */
+    font-size:14px;
+   
+    padding:5px 15px;
+    box-sizing:border-box;
+}
+.search .list-box .itemList .item a{
+    height:30px;
+    display: inline-block;
+    color:rgb(88, 89, 92);
+     line-height:30px;
+}
+.search .list-box .itemList .item .key {
+    padding-right:10px;
+}
+@media screen and (max-width:1125px) {
+    .search{
+        top:10px;
+    }
+}
+@media screen and (max-width:900px){
+    .search{
+        width:380px;
+    }
+}
+@media screen and (max-width:700px){
+    .search{
+      margin:0 auto
+    }
+}
+@media screen and (max-width:400px){
+    .search{
+       display:none
+    }
+}
